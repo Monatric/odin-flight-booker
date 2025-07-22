@@ -1,24 +1,13 @@
-# README
+# Project: Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is based on the [Ruby on Rails course of The Odin Project, Flight Booker](https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker).
 
-Things you may want to cover:
+This is about tackling with more advanced forms like populating dropdown menus, radio buttons, working with nested attributes, complex user orders (booking flights), and integration of billing information (I have yet to find out how integrating billing information works).
 
-* Ruby version
+## Learning Outcomes
 
-* System dependencies
+To be completed soon.
 
-* Configuration
+## Screenshots
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To be completed soon.
