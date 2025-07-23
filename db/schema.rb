@@ -24,7 +24,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_23_080916) do
     t.bigint "departure_airport_id", null: false
     t.bigint "arrival_airport_id", null: false
     t.datetime "start_date"
-    t.time "flight_duration"
+    t.interval "flight_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
