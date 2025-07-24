@@ -6,8 +6,18 @@ class Flight < ApplicationRecord
   belongs_to :arrival_airport, class_name: "Airport"
 
   scope :dates_asc, -> { select(:start_date).order(:start_date) }
+  scope :available_flights,
+    ->(departure_airport_id, arrival_airport_id, start_date) {
+        select(departure_airport_id: departure_airport_id)
+        .where(arrival_airport_id: arrival_airport_id)
+        .where(start_date: start_date)
+      }
 
-  def start_date_formatted
+  def start_date_format_to_date
+    start_date.to_date
+  end
+
+  def start_date_format_to_mdy
     start_date.strftime("%m/%d/%Y")
   end
 end
