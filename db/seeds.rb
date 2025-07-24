@@ -66,6 +66,12 @@ FLIGHTS = [
     arrival_airport_id: 7,
     start_date: DateTime.new(2026, 2, 14, 3, 30, 0),
     flight_duration: 6.hours + 30.minutes
+  },
+  {
+    departure_airport_id: 10,
+    arrival_airport_id: 7,
+    start_date: DateTime.new(2026, 2, 14, 7, 15, 0),
+    flight_duration: 2.hours
   }
 ]
 
