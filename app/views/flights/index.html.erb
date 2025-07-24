@@ -1,8 +1,17 @@
 <h1>Flights#index</h1>
 <p>Find me in app/views/flights/index.html.erb</p>
 <%= form_with url: flights_path, method: :get do |f| %>
-  <%= f.label :departure_airports %>
-  <%= select_tag :departure_airport_id, options_for_select(@departure_airports) %>
+  <%= f.label :departure_code %>
+  <%= select_tag :departure_code, options_for_select(@departure_airports) %>
+
+  <%= f.label :arrival_code %>
+  <%= select_tag :arrival_code, options_for_select(@arrival_airports) %>
+
+  <%= f.label :num_tickets %>
+  <%= select_tag :num_tickets, options_for_select(@num_tickets) %>
+
+  <%= f.label :start_date %>
+  <%= select_tag :start_date, options_from_collection_for_select(@flight_dates, :start_date_formatted, :start_date_formatted)  %>
 
   <%= f.submit "Search" %>
 <% end %>
