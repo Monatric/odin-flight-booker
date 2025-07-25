@@ -14,7 +14,7 @@
   <%# select_tag :start_date, 
       options_from_collection_for_select(@flight_dates, 
                                          :start_date_format_to_date, 
-                                         :start_date_format_to_mdy,
+                                         :start_date_format_to_full_mdy,
                                          @search[:start_date]) %>
   <%= f.select :start_date, @flight_dates, selected: @search[:start_date] %>
 
