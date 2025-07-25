@@ -21,23 +21,27 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<% @flights.each_with_index do |flight, idx| %>
-  <%= idx + 1 %>.
-  <div>
-    Departure Airport:
-    <%= flight.departure_airport.code %>
-  </div>
-  <div>
-    Arrival Airport:
-    <%= flight.arrival_airport.code %>
-  </div>
-  <div>
-    Start Date:
-    <%= flight.start_date %>
-  </div>
-  <div>
-    Flight Duration:
-    <%= flight.flight_duration.inspect %>
-  </div>
-  <br>
+<% if @flights.empty? %>
+  No flights for this route or date. Choose another airport or date.
+<% else %>
+  <% @flights.each_with_index do |flight, idx| %>
+    <%= idx + 1 %>.
+    <div>
+      Departure Airport:
+      <%= flight.departure_airport.code %>
+    </div>
+    <div>
+      Arrival Airport:
+      <%= flight.arrival_airport.code %>
+    </div>
+    <div>
+      Start Date:
+      <%= flight.start_date %>
+    </div>
+    <div>
+      Flight Duration:
+      <%= flight.flight_duration.inspect %>
+    </div>
+    <br>
+  <% end %>
 <% end %>
