@@ -19,68 +19,30 @@ p "Seeded #{Airport.count} airport codes"
 
 # Flight seeds
 FLIGHTS = [
-  {
-    departure_airport_id: 1,
-    arrival_airport_id: 2,
-    start_date: DateTime.new(2025, 8, 10, 18, 00, 0),
-    flight_duration: 3.hours
-  },
-  {
-    departure_airport_id: 12,
-    arrival_airport_id: 5,
-    start_date: DateTime.new(2025, 8, 5, 8, 30, 0),
-    flight_duration: 2.hours + 45.minutes
-  },
-  {
-    departure_airport_id: 7,
-    arrival_airport_id: 6,
-    start_date: DateTime.new(2025, 8, 8, 15, 15, 0),
-    flight_duration: 7.hours
-  },
-  {
-    departure_airport_id: 3,
-    arrival_airport_id: 10,
-    start_date: DateTime.new(2025, 9, 1, 0, 0, 0),
-    flight_duration: 5.hours + 30.minutes
-  },
-  {
-    departure_airport_id: 3,
-    arrival_airport_id: 9,
-    start_date: DateTime.new(2025, 8, 12, 1, 30, 0),
-    flight_duration: 50.minutes
-  },
-  {
-    departure_airport_id: 9,
-    arrival_airport_id: 5,
-    start_date: DateTime.new(2025, 7, 25, 9, 0, 0),
-    flight_duration: 12.hours
-  },
-  {
-    departure_airport_id: 11,
-    arrival_airport_id: 2,
-    start_date: DateTime.new(2025, 12, 1, 12, 30, 0),
-    flight_duration: 10.hours
-  },
-  {
-    departure_airport_id: 10,
-    arrival_airport_id: 7,
-    start_date: DateTime.new(2026, 2, 14, 3, 30, 0),
-    flight_duration: 6.hours + 30.minutes
-  },
-  {
-    departure_airport_id: 10,
-    arrival_airport_id: 7,
-    start_date: DateTime.new(2026, 2, 14, 7, 15, 0),
-    flight_duration: 2.hours
-  }
+  { dep: "SFO", arr: "LAX", dt: DateTime.new(2025, 8, 10, 18,  0,  0), dur: 3.hours },
+  { dep: "LAX", arr: "JFK", dt: DateTime.new(2025, 8,  5,  8, 30,  0), dur: 2.hours + 45.minutes },
+  { dep: "MNL", arr: "CEB", dt: DateTime.new(2025, 8,  8, 15, 15,  0), dur: 1.hour + 20.minutes },
+  { dep: "JFK", arr: "ORD", dt: DateTime.new(2025, 9,  1,  0,  0,  0), dur: 5.hours + 30.minutes },
+  { dep: "MIA", arr: "DFW", dt: DateTime.new(2025, 8, 12,  1, 30,  0), dur: 2.hours + 45.minutes },
+  { dep: "CDG", arr: "DXB", dt: DateTime.new(2025, 8, 13, 20, 30,  0), dur: 6.hours + 50.minutes },
+  { dep: "DXB", arr: "HND", dt: DateTime.new(2025, 8, 14,  2, 15,  0), dur: 9.hours + 40.minutes },
+  { dep: "CEB", arr: "CRK", dt: DateTime.new(2025, 8, 14, 18, 30,  0), dur: 1.hour + 5.minutes },
+  { dep: "CRK", arr: "ORD", dt: DateTime.new(2025, 12, 24, 23,  0,  0), dur: 15.hours + 30.minutes },
+  { dep: "CRK", arr: "ORD", dt: DateTime.new(2025, 12, 24, 15,  15,  0), dur: 1.hour },
+  { dep: "CRK", arr: "ORD", dt: DateTime.new(2025, 12, 24, 8,  45,  0), dur: 2.hours },
+  { dep: "MNL", arr: "CEB", dt: DateTime.new(2025, 8, 8, 10,  0,  0), dur: 2.hours + 10.minutes },
+  { dep: "CRK", arr: "JFK", dt: DateTime.new(2025, 12, 24, 23,  0,  0), dur: 1.hour }
 ]
 
 FLIGHTS.each do |flight|
+  depature_airport = Airport.find_by(code: flight[:dep])
+  arrival_airport = Airport.find_by(code: flight[:arr])
+
   Flight.find_or_create_by!(
-    departure_airport_id: flight[:departure_airport_id],
-    arrival_airport_id: flight[:arrival_airport_id],
-    start_date: flight[:start_date],
-    flight_duration: flight[:flight_duration]
+    departure_airport: depature_airport,
+    arrival_airport: arrival_airport,
+    start_date: flight[:dt],
+    flight_duration: flight[:dur]
   )
 end
 
