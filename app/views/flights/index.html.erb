@@ -24,24 +24,34 @@
 <% if @flights.empty? %>
   No flights for this route or date. Choose another airport or date.
 <% else %>
-  <% @flights.each_with_index do |flight, idx| %>
-    <%= idx + 1 %>.
-    <div>
-      Departure Airport:
-      <%= flight.departure_airport.code %>
-    </div>
-    <div>
-      Arrival Airport:
-      <%= flight.arrival_airport.code %>
-    </div>
-    <div>
-      Start Date:
-      <%= flight.start_date %>
-    </div>
-    <div>
-      Flight Duration:
-      <%= flight.flight_duration.inspect %>
-    </div>
-    <br>
+  <%= form_with url: new_booking_path, method: :get do |form|%>
+    <%= hidden_field_tag 'num_tickets', @search[:num_tickets] %>
+    <h3>Select a flight by clicking the button next to the number:</h3>
+    <% @flights.each_with_index do |flight, idx| %>
+      <div>
+        <h4>
+        <%= form.label "flight_id_#{flight.id}", "#{(idx + 1).ordinalize} Flight" %>
+        <%= form.radio_button :flight_id, flight.id %>
+        </h4>
+      </div>
+      <div>
+        Departure Airport:
+        <%= flight.departure_airport.code %>
+      </div>
+      <div>
+        Arrival Airport:
+        <%= flight.arrival_airport.code %>
+      </div>
+      <div>
+        Start Date:
+        <%= flight.start_date %>
+      </div>
+      <div>
+        Flight Duration:
+        <%= flight.flight_duration.inspect %>
+      </div>
+      <br>
+    <% end %>
+    <%= form.submit "Book a flight" %>
   <% end %>
 <% end %>
