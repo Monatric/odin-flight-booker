@@ -2,16 +2,20 @@
 <p>Find me in app/views/flights/index.html.erb</p>
 <%= form_with url: flights_path, method: :get do |f| %>
   <%= f.label :departure_code %>
-  <%= select_tag :departure_code, options_for_select(@departure_airports) %>
+  <%= f.select :departure_code, @airports, selected: @search[:departure_code]  %>
 
   <%= f.label :arrival_code %>
-  <%= select_tag :arrival_code, options_for_select(@arrival_airports) %>
+  <%= f.select :arrival_code, @airports, selected: @search[:arrival_code]  %>
 
   <%= f.label :num_tickets %>
-  <%= select_tag :num_tickets, options_for_select(@num_tickets) %>
+  <%= f.select :num_tickets, @num_tickets, selected: @search[:num_tickets] %>
 
   <%= f.label :start_date %>
-  <%= select_tag :start_date, options_from_collection_for_select(@flight_dates, :start_date_format_to_date, :start_date_format_to_mdy)  %>
+  <%= select_tag :start_date, 
+      options_from_collection_for_select(@flight_dates, 
+                                         :start_date_format_to_date, 
+                                         :start_date_format_to_mdy,
+                                         @search[:start_date]) %>
 
   <%= f.submit "Search" %>
 <% end %>
