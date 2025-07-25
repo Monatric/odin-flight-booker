@@ -1,7 +1,8 @@
 class FlightsController < ApplicationController
   def index
     @airports = Airport.pluck(:code, :code)
-    @flight_dates = Flight.dates_asc
+    # @flight_dates = Flight.dates_asc.pluck(:start_date).map(&:to_date).uniq.map { |d| [ d.strftime("%B %d, %Y"), d ] }
+    @flight_dates = Flight.pluck(Arel.sql("DISTINCT DATE(start_date)")).sort.map { |d| [ d.strftime("%B %d, %Y"), d ] }
     @num_tickets = 4.times.map { |n| [ n + 1, n + 1 ] }
     @search = flight_search_params
 
