@@ -9,8 +9,8 @@
 
 <h3>Enter passenger information:</h3>
 <%= form_with model: @booking do |form| %>
-  <%= hidden_field_tag 'num_tickets', params[:num_tickets] %>
-  <%= hidden_field_tag 'flight_id', params[:flight_id] %>
+  <%= hidden_field_tag 'booking[num_tickets]', params[:num_tickets] %>
+  <%= hidden_field_tag 'booking[flight_id]', params[:flight_id] %>
   <ul>
     <%= form.fields_for :passengers do |passenger_form| %>
       <li>
