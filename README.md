@@ -13,4 +13,14 @@ This is about tackling with more advanced forms like populating dropdown menus, 
 
 ## Screenshots
 
-To be completed soon.
+### Root page
+
+![Root page](public/root_page.png)
+
+### New Booking
+
+![New Booking](public/new_booking.png)
+
+### Booked flight
+
+![Booked flight](public/show_booking.png)
