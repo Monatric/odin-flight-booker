@@ -1,2 +1,12 @@
 <h1>Bookings#new</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
+<h2>Flight information:</h2>
+<p>Number of tickets: <%= params[:num_tickets] %></p>
+<p>Departure airport: <%= @flight.departure_airport.code %></p>
+<p>Arrival airport: <%= @flight.arrival_airport.code %></p>
+<p>Start date: <%= @flight.start_date %></p>
+<p>Flight duration: <%= @flight.flight_duration.inspect %></p>
+
+<%= form_with model: @booking do |form| %>
+  
+<% end %>
