@@ -6,7 +6,10 @@ This is about tackling with more advanced forms like populating dropdown menus, 
 
 ## Learning Outcomes
 
-To be completed soon.
+- Focused mostly on building complex forms. This includes using `#fields_for` so I can have nested attributes, where forms may require to have multiple rendered form fields in a single form to prevent user submitting multiple times.
+- That said, I had to use `accepts_nested_attributes_for :passengers` as seen in the Booking model.
+- I learned how to permit the params for these nested attributes.
+- The advanced forms also allowed me to figure out how to work with hidden fields, date objects and date formats, as well as producing results with a basic search form and passing these params to different views.
 
 ## Screenshots
 
