@@ -7,6 +7,25 @@
 <p>Start date: <%= @flight.start_date %></p>
 <p>Flight duration: <%= @flight.flight_duration.inspect %></p>
 
+<h3>Enter passenger information:</h3>
 <%= form_with model: @booking do |form| %>
-  
+  <%= hidden_field_tag 'num_tickets', params[:num_tickets] %>
+  <%= hidden_field_tag 'flight_id', params[:flight_id] %>
+  <ul>
+    <%= form.fields_for :passengers do |passenger_form| %>
+      <li>
+        Passenger <%= passenger_form.index + 1 %>
+        <div>
+          <%= passenger_form.label :name %>
+          <%= passenger_form.text_field :name %>
+        </div>
+        <div>
+          <%= passenger_form.label :email %>
+          <%= passenger_form.email_field :email %>
+        </div>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+  <%= form.submit %>
 <% end %>
