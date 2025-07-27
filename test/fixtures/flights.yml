@@ -4,10 +4,10 @@ one:
   departure_airport: one
   arrival_airport: one
   start_date: 2025-07-23 16:09:16
-  flight_duration: 2025-07-23 16:09:16
+  flight_duration: 1 hour
 
 two:
   departure_airport: two
   arrival_airport: two
   start_date: 2025-07-23 16:09:16
-  flight_duration: 2025-07-23 16:09:16
+  flight_duration: 2 hours

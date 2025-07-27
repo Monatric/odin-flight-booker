@@ -3,7 +3,9 @@
 one:
   name: MyString
   email: MyString
+  booking: one
 
 two:
   name: MyString
   email: MyString
+  booking: two
