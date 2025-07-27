@@ -10,6 +10,7 @@ This is about tackling with more advanced forms like populating dropdown menus, 
 - That said, I had to use `accepts_nested_attributes_for :passengers` as seen in the Booking model.
 - I learned how to permit the params for these nested attributes.
 - The advanced forms also allowed me to figure out how to work with hidden fields, date objects and date formats, as well as producing results with a basic search form and passing these params to different views.
+- CI/CD isn't part of the Rails course of TheOdinProject (as of writing), so I tried to read and fix the CI errors, which mainly consisted about the tests. So I fixed the labels of fixtures and URL testing.
 
 ## Screenshots
 
