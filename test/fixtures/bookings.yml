@@ -2,8 +2,8 @@
 
 one:
   num_tickets: 1
-  flight_id: one
+  flight: one
 
 two:
   num_tickets: 1
-  flight_id: two
+  flight: two
