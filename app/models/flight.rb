@@ -8,7 +8,7 @@ class Flight < ApplicationRecord
   scope :dates_asc, -> { select(:start_date).order(:start_date).distinct }
   scope :available_flights,
     ->(departure_airport_id, arrival_airport_id, start_date) {
-        select(departure_airport_id: departure_airport_id)
+        where(departure_airport_id: departure_airport_id)
         .where(arrival_airport_id: arrival_airport_id)
         .where(start_date: start_date)
       }
